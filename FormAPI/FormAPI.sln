@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAPI", "FormAPI.csproj", "{AC919003-5255-4AAC-873E-9D6CF27D43F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormWeb", "..\FormWeb\FormWeb.csproj", "{BB65D43E-D170-401F-8C20-5774BC4FB710}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC919003-5255-4AAC-873E-9D6CF27D43F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC919003-5255-4AAC-873E-9D6CF27D43F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC919003-5255-4AAC-873E-9D6CF27D43F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC919003-5255-4AAC-873E-9D6CF27D43F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB65D43E-D170-401F-8C20-5774BC4FB710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB65D43E-D170-401F-8C20-5774BC4FB710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB65D43E-D170-401F-8C20-5774BC4FB710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB65D43E-D170-401F-8C20-5774BC4FB710}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45FA5244-FED3-48D4-9E41-5D5451777B5C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,127 @@
+﻿
+    <div ng-init="sessionControl()">
+        <div class="button-bar">
+            <button type="button" class="btn btn-secondary btn-block" ng-click="quit()" style="text-align:right">Logout</button>
+
+        </div>
+        <div class="row">
+
+            <div class="col-sm-7">
+                <div ng-show="myServer.length>0">
+                    <h3> Sizin sunucularınız</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">İd</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Doluluk Oranı</th>
+                                <th scope="col">Tanımı</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col">Bağlan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in myServer">
+                                <td>{{x.Server_id}}</td>
+                                <td>{{x.Server_name}}</td>
+                                <td>{{x.Server_size}}</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width:{{x.oran}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{x.oran | number : 2}}%</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <textareaon>{{x.Server_description}}</textareaon>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" ng-click="deleteserver(x.Server_id)">Sil</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success" ng-click="connectserver(x.Server_id)">Bağlan</button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        <div>
+                            <h3>Yeni Sunucu oluştur</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Server Name</label>
+                                    <input type="text" class="form-control" ng-model="newName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Server Size</label>
+                                    <input type="number" class="form-control" ng-model="newSize" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Server Tanım</label>
+                                    <br />
+                                    <textarea ng-model="newtanim" required></textarea>
+
+                                </div>
+                                <button type="submit" class="btn btn-primary" ng-click="yeniServer(newName,newSize,newtanim)">oluştur</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-7"></div>
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-5" ng-show="uyeOlunanServerler.length>0">
+                <h3> Üye olduğunuz sunucular</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">İd</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Tanımı</th>
+                            <th scope="col">Sil</th>
+                            <th scope="col"> Bağlan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in uyeOlunanServerler">
+                            <td>{{x.Server_id}}</td>
+                            <td>{{x.Server_name}}</td>
+                            <td>{{x.Server_size}}</td>
+
+                            <td>
+                                <textareaon>{{x.Server_description}}</textareaon>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" ng-click="uyelikSil(x.Server_id)">uyelikten çık</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success" ng-click="connectserver(x.Server_id)">Bağlan</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>

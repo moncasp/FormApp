@@ -1,0 +1,63 @@
+﻿<div  ng-init="sessionControl()">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6">
+            <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                <a class="navbar-brand">{{serverbilgi[0].Server_name}}</a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-warning" ng-click="gotoHome()">Home</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-danger" ng-click="quit()">Logout</button>
+                    </li>
+                    
+                </ul>
+            </nav>
+            <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                <div class="card w-75" style="margin-left: 20px">
+                    <div class="card-body float-right" ng-repeat="x in msgList">
+                        <h4 class="card-title">{{x.username}}</h4>
+                        <p class="card-text">{{x.Msg_content}}</p>
+                        <small>{{x.Msg_date}}</small>
+                        <button type="button" class="btn btn-outline-danger" ng-click="mesajSil(x.Msg_id)" ng-show="userYetki == 'root'  ||  session == serverbilgi[0].Server_admin">delete</button>
+                        <hr />
+                    </div>
+
+                </div>
+
+
+            </div>
+            <br />
+            <div class="input-group mb-3">
+                <input required type="text" class="form-control" placeholder="Mesaj yazınız" aria-label="Recipient's username" aria-describedby="button-addon2" ng-model="mesajim">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2" ng-click="mesajYaz(mesajim)">Gönder</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <h3> Sunucu Üyeleri</h3><br />
+            <div ng-repeat="x in uyeList">
+                <div class="card bg-info text-white">
+                    <span class="card-body">{{x.username}}</span>
+                    <button type="button" class="btn btn-warning" ng-show="(userYetki == 'root' ||  session == serverbilgi[0].Server_admin)" ng-click="UyeSil(x.User_id)">sil</button>
+                </div><br />
+            </div>
+            <div ng-show="(userYetki == 'root'  ||  session == serverbilgi[0].Server_admin) && serverbilgi[0].Server_size > uyeList.length ">
+                <h3>Yeni Üye Ekle</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Üye adı</label>
+                        <input type="text" class="form-control" ng-model="eklenecekUye" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" ng-click="yeniuye(eklenecekUye)">Ekle</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    
+</div>
